@@ -1,33 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.app{
+  display: flex;
 }
+  /* sidebar css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .sidebar{
+    display:flex;
+    flex-direction: column;
+    flex:0.25;
+    height:100vh;
+    background-color: #2f3135;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .sidebar__top{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:#2f3135;
+    color:white;
+    border-bottom: 3px solid #2f3135;
   }
+  .sidebar__channels{
+    flex:1;
+  }
+  .sidebar__addChannel{
+    cursor:pointer;
+  }
+  .sidebar__addChannel:hover{
+    color:white;
+  }
+  .sidebar__channelsHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px;
+    background-color:#2f3135;
+    color:gray;
+  }
+  .sidebar__header{
+    display:flex;
+    align-items: center;
+  }
+  .sidebar__voice,.sidebar__profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    background-color:#2f3135;
+    padding: 10px;
+    border-top: 1px solid gray;
+  }
+  .sidebar__voiceInfo{
+    flex:1;
+    padding:10px;
+  }
+  .sidebar__voiceInfo>h3{
+    color:#4fb185;
+  }
+  .sidebar__voiceInfo>p{
+    font-size:smaller;
+  }
+  .sidebar__voiceIcons>.MuiSvgIcon-root{
+    padding:2px;
+  }
+  .sidebar__profileInfo{
+    flex:1;
+    padding:10px;
+  }
+  .sidebar__profileInfo>h3{
+    color:white;
+  }
+  .sidebar__profileIcons>.MuiSvgIcon-root{
+    padding: 2px;
+  }
+
+  /* sidebarChannel css */
+
+
+  .sidebarChannel:hover>h4{
+    color:white;
+    background-color: #40464b;
+  }
+  /* .sidebarChannel>h4{
+    display:flex;
+    align-items: center;
+    padding-left: 15px;
+    background-color:#2f3135;
+    color:gray;
+    cursor: pointer;
+  } */
+  .sidebarChannel_hash{
+    font-size:30px;
+    /* padding:8px; */
+  }
+  /* chat.css */
+
+  .chat{
+    display: flex;
+    flex-direction: column;
+    flex: 0.75;
+    background-color: #363a3f;
+    height:100vh;
+  }
+  
+  .chat__messages{
+    flex:1;
+    overflow-y: scroll;
+  }
+  .chat__messages::-webkit-scrollbar{
+    display: none;
+  }
+  .chat__messages{
+    -ms-overflow-style:none;
+    scrollbar-width: none;
+  }
+  
+  .chat__input{
+    color:lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 5px;
+    border-top: 1px solid gray;
+    background-color: #474b53;
+  }
+  .chat__input>form>input{
+    padding: 15px;
+    background: transparent;
+    outline-width:0;
+    width:100%;
+    color:white;
+    border:none;
+    font-size:large;
+  }
+  .chat__input>form{
+    flex:1;
+  }
+  .chat__inputButton{
+    display:none;
+  }
+  .chat__inputIcons>.MuiSvgIcon-root{
+    padding:5px;
+  }
+
+  /* ChatHeader.css */
+  .bold{
+    font-size:18px;
+    font-weight: 700;
+  }
+.chatHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    padding: 10px;
+}
+.chatHeader__hash{
+  color:gray;
+  font-size:30px;
+    padding:10px;
+}
+.chatHeader__left >h3{
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.chatHeader__right {
+  display: flex;
+  align-items: center;
+  flex:0.5;
+  justify-content: space-between;
+  /* color: white; */
+}
+.chatHeader__right> .MuiSvgIcon-root{
+  padding:1px;
+  cursor:pointer;
+}
+.chatHeader__right> .MuiSvgIcon-root:hover{
+  color: white;
+}
+.chatHeader__search{
+    display: flex;
+    align-items: center;
+    color: gray;
+    background-color:#2f3135;
+    padding: 3px;
+    border-radius: 3px;
+}
+.chatHeader__search>input{
+  background: transparent;
+  outline-width:0;
+  color:white;
+  border:none;
+}
+
+/* message css */
+
+.message{
+  display:flex ;
+  /* justify-content: center; */
+  align-items: start;
+  padding-left: 20px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  width:max-content;
+}
+/* .message-hovered{
+  padding-left: -20px;
+} */
+.message__info{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.message__timestamp{
+  color:gray;
+  margin-left: 20px;
+  font-size:x-small;
+}
+/* .message__info>h4{
+  color:gray;
+  font-size:x-small;
+} */
+.login{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width:100%
+}
+.login>button{
+  width: 300px;
+  background-color: #738adb;
+  color: #eff2f5;
+  font-weight: 800;
+}
+.login>button:hover{
+  background-color: black;
+  color:#738adb
+}
+.login>div>img{
+  object-fit: contain;
+  height: 200px;
 }

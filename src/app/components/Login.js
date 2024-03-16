@@ -13,10 +13,10 @@ const Login = () => {
             alert(error.message);
           }    };
   return (
-    <div className="login">
+    <div className="login flex flex-col items-center justify-center gap-24">
              <div className="login_logo">
                  <img
-                     src="/assets/discord.png"
+                     src="/assets/logo1.png"
                      alt=""/>
              </div>
              <Button onClick={signIn}> Sign In</Button>

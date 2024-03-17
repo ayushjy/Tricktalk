@@ -4,9 +4,15 @@ import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+import { getInput } from '../../../lib/features/input/inputSlice';
+import { useAppDispatch } from '../../../lib/hooks';
 import { useState } from 'react';
 const ChatHeader = ({channelName}) => {
+  const dispatch = useAppDispatch();
   const [search,setSearch] = useState("");
+  const getInputValue=(payload)=>{
+    dispatch(getInput(payload));
+  }
   console.log(search)
   return (
     <div className="chatHeader">
@@ -20,7 +26,7 @@ const ChatHeader = ({channelName}) => {
         <EditLocationRoundedIcon/>
         <PeopleAltRoundedIcon/>
         <div className="chatHeader__search">
-            <input placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+            <input placeholder="Search" onChange={(e)=>getInputValue(e.target.value)}/>
             <SearchRoundedIcon/>
         </div>
         <SendRoundedIcon/>

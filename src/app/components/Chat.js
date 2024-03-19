@@ -62,6 +62,7 @@ const Chat = () => {
           textmessages={[message.data.message]}
           user={message.data.user}
           id={message.id}
+          input={input}
           />
       ))}
         </div>
@@ -72,6 +73,7 @@ const Chat = () => {
             value={input}
             disabled={!channelName}
             onChange={(e) => setInput(e.target.value)} />
+
           <button
             disabled={!channelName}
             onClick={

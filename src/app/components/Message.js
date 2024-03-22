@@ -4,7 +4,8 @@ import { useAppSelector } from '../../../lib/hooks';
 import { doc, deleteDoc } from "firebase/firestore";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import { AiOutlineDelete } from "react-icons/ai";
-import { VscCopy } from "react-icons/vsc"; import db from './firebase';
+import { VscCopy } from "react-icons/vsc"; 
+import db from './firebase';
 import { selectInput } from "../../../lib/features/input/inputSlice";
 
 
@@ -36,14 +37,14 @@ const Message = ({ id, user, textmessages, timestamp,input}) => {
     await deleteDoc(doc(db, 'channels', selectChannelId, 'messages', id));
   };
 
-  // const handleCopy = async () => {
-  //   try {
-  //     await navigator.clipboard.writeText(input);
-  //     console.log("Text copied successfully!");
-  //   } catch (error) {
-  //     console.error("Failed to copy text:", error);
-  //   }
-  // };
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(textmessages.toString());
+      console.log("Text copied successfully!");
+    } catch (error) {
+      console.error("Failed to copy text:", error);
+    }
+  };
   
 
   return (
@@ -68,7 +69,7 @@ const Message = ({ id, user, textmessages, timestamp,input}) => {
             <button onClick={handleDeleteClick} className="w-full text-start  ">Delete Message</button>
           </div>
          
-          <div  className="flex gap-1 justify-center items-center hover:bg-gray-700 hover:rounded-md px-1 py-2">
+          <div onClick={handleCopy} className="flex gap-1 justify-center items-center hover:bg-gray-700 hover:rounded-md px-1 py-2">
             <VscCopy size={22} />
             <button className="w-full text-start">Copy</button>
           </div>

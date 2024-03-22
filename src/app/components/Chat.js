@@ -13,7 +13,7 @@ import db from "./firebase";
 import firebase from "./firebase"
 import { selectUser } from "../../../lib/features/user/userSlice";
 const Chat = () => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);  
   const channelName = useAppSelector(setchannelName);
   const currentChannelId = useAppSelector(selectChannelId);

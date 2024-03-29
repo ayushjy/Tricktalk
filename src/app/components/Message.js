@@ -6,7 +6,7 @@ import { HiEllipsisVertical } from "react-icons/hi2";
 import { AiOutlineDelete } from "react-icons/ai";
 import { VscCopy } from "react-icons/vsc"; 
 import db from './firebase';
-import { selectInput } from "../../../lib/features/input/inputslice";
+import { selectInput } from "../../../lib/features/input/inputSlice";
 
 const Message = ({ id, user, textmessages, timestamp,input}) => {
   const [showContextMenu, setShowContextMenu] = useState(false);  

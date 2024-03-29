@@ -5,7 +5,7 @@ import { selectUser } from '../../../lib/features/user/userSlice';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
-import InfoOutLinedIcon from '@mui/icons-material/InfoOutLined';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import CallIcon from '@mui/icons-material/Call';
 import MicIcon from '@mui/icons-material/Mic';
 import HeadsetIcon from '@mui/icons-material/Headset';
@@ -13,7 +13,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SidebarChannel from './SidebarChannel';
 import { Avatar } from '@mui/material';
 import db, { auth } from './firebase';
-import { getDocs, addDoc, collection, onSnapshot } from "firebase/firestore";
+import {addDoc, collection, onSnapshot } from "firebase/firestore";
 
 const Sidebar = () => {
     const [channels, setChannels] = useState([]);
@@ -97,8 +97,8 @@ const Sidebar = () => {
                     <p>Stream</p>
                 </div>
                 <div className="sidebar__voiceIcons">
-                    <InfoOutLinedIcon />
-                    <CallIcon />
+                <IoIosInformationCircleOutline size={25}/>                    
+                <CallIcon />
                 </div>
             </div>
             <div className="sidebar__profile">

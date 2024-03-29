@@ -65,7 +65,8 @@
   .sidebar__voiceInfo>p{
     font-size:smaller;
   }
-  .sidebar__voiceIcons>.MuiSvgIcon-root{
+  .sidebar__voiceIcons{
+    display: flex;
     padding:2px;
   }
   .sidebar__profileInfo{

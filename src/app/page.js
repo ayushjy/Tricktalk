@@ -6,7 +6,7 @@ import { auth } from "./components/firebase";
 import { useAppSelector } from "../../lib/hooks";
 import { useAppDispatch } from "../../lib/hooks";
 import { login,logout } from "../../lib/features/user/userSlice";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 const index = () => {
   const user =useAppSelector(state=>state.user.user);
   const dispatch = useAppDispatch()
@@ -31,12 +31,15 @@ const index = () => {
     
 
   return (
-    <div className="app ">
-      {user?(<>
-        <Sidebar/>
-        <Chat/>
-        </>):<Login/> }
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="app ">
+        {user?(<>
+          <Sidebar/>
+          <Chat/>
+          </>):<Login/> }
+      </div>
+    </Suspense>
+    
   )
 }
 

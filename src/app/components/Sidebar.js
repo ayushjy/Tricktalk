@@ -68,7 +68,7 @@ const Sidebar = () => {
     return (
         <div className='sidebar '>
             <div className="sidebar__top">
-                <h3 className='bold'>TrickTalk</h3>
+                <h3 className='bold'>TrickTalk8</h3>
                 <ExpandMoreIcon />
             </div>
             <div className="sidebar__channels">

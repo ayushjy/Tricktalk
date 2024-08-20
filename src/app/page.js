@@ -12,7 +12,7 @@ const index = () => {
   const dispatch = useAppDispatch()
     useEffect(() => {
       auth.onAuthStateChanged((authuser)=>{
-        console.log(authuser)
+        // console.log(authuser)
         if(authuser){
           //the user is looged in
           dispatch(login({
